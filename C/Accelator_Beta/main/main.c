@@ -31,7 +31,16 @@ static const char *TAG = "main";
 #define MMA8452Q_REG_CTRL_REG3 0x2C
 
 #define FULL_SCALE_2G 0x00
+#define XYZ_DATA_CFG 0x0E
 
+#define CTRL_REG1 0x2A
+#define CTRL_REG2 0x2B
+#define CTRL_REG3 0x2C
+#define CTRL_REG4 0x2D
+#define CTRL_REG5 0x2E
+#define WHO_AM_I_REG 0x0D
+
+#define ACTIVE_MASK 0x01
 typedef struct {
   int16_t x;
   int16_t y;
@@ -83,18 +92,6 @@ esp_err_t wrMMA8452Q(uint8_t i2c_reg, uint8_t *pdata, uint8_t count) {
                                     count);
 }
 
-// JEDYNE CO NIE DZIAŁA TO FIX
-static void mma8452q_init() {
-  uint8_t data;
-  wrMMA8452Q(MMA8452Q_REG_CTRL_REG1, &data, 1);
-  data = 0x01;
-  wrMMA8452Q(MMA8452Q_REG_CTRL_REG1, &data, 1);
-  data = 0x00;
-  wrMMA8452Q(MMA8452Q_REG_CTRL_REG2, &data, 1);
-  data = 0x00;
-  wrMMA8452Q(MMA8452Q_REG_CTRL_REG3, &data, 1);
-}
-
 static void i2c_master_innit() {
   i2c_config_t conf;
   conf.mode = I2C_MODE_MASTER;
@@ -105,6 +102,31 @@ static void i2c_master_innit() {
   conf.master.clk_speed = 100000;
   i2c_param_config(I2C_NUM_1, &conf);
   i2c_driver_install(I2C_NUM_1, conf.mode, 0, 0, 0);
+}
+
+// JEDYNE CO NIE DZIAŁA TO FIX
+static void mma8452q_init() {
+  uint8_t val;
+
+  // rdMMA8452Q(CTRL_REG1, &(val), 1);
+  // val &= ~(ACTIVE_MASK);
+  // wrMMA8452Q(CTRL_REG1, &(val), 1);
+  // uint16_t data;
+  // rdMMA8452Q(0x07, (uint8_t *)&data, 1);
+  // printf("MMA8452Q WHOAMI: 0x%X\n", data);
+
+  // rdMMA8452Q(WHO_AM_I_REG, &(val), 1);
+  // if (val == 0x1A) {
+  //   ESP_LOGI(TAG, "MMA8245x ID:0x%X (ok)", val);
+  // } else {
+  //   ESP_LOGE(TAG, "MMA8245x ID:0x%X !!!! (NOT correct; should be 0x1A)",
+  //   val);
+  // }
+
+  // val = (FULL_SCALE_2G);
+  // wrMMA8452Q(XYZ_DATA_CFG, &(val), 1);
+  // wrMMA8452Q(XYZ_DATA_CFG, 0x01, 1);
+  //  set range to 2g
 }
 
 uint16_t byte_swap(uint16_t val) { return (val >> 8) | (val << 8); }

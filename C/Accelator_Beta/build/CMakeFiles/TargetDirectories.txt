@@ -11,7 +11,7 @@
 /Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/flash.dir
 /Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/encrypted-flash.dir
 /Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/_project_elf_src.dir
-/Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/Accelator_Beta.elf.dir
+/Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/MatiEsp.elf.dir
 /Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/size.dir
 /Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/size-files.dir
 /Users/zet/Studia/TimeCube/C/Accelator_Beta/build/CMakeFiles/size-components.dir

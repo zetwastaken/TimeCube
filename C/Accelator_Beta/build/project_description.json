@@ -1,15 +1,15 @@
 {
     "version":            "1.1",
-    "project_name":       "Accelator_Beta",
-    "project_version":    "1",
+    "project_name":       "MatiEsp",
+    "project_version":    "98ffc4a-dirty",
     "project_path":       "/Users/zet/Studia/TimeCube/C/Accelator_Beta",
     "idf_path":           "/Users/zet/esp/v5.2.1/esp-idf",
     "build_dir":          "/Users/zet/Studia/TimeCube/C/Accelator_Beta/build",
     "config_file":        "/Users/zet/Studia/TimeCube/C/Accelator_Beta/sdkconfig",
     "config_defaults":    "",
     "bootloader_elf":     "/Users/zet/Studia/TimeCube/C/Accelator_Beta/build/bootloader/bootloader.elf",
-    "app_elf":            "Accelator_Beta.elf",
-    "app_bin":            "Accelator_Beta.bin",
+    "app_elf":            "MatiEsp.elf",
+    "app_bin":            "MatiEsp.bin",
     "build_type":         "flash_app",
     "git_revision":       "v5.2.1-dirty",
     "target":             "esp32",
@@ -805,8 +805,8 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/Users/zet/Studia/TimeCube/C/Accelator_Beta/build/esp-idf/main/libmain.a",
-            "sources": [ "/Users/zet/Studia/TimeCube/C/Accelator_Beta/main/main.c" ],
-            "include_dirs": [ "." ]
+            "sources": [ "/Users/zet/Studia/TimeCube/C/Accelator_Beta/main/readAndDisplayAccelValues.c", "/Users/zet/Studia/TimeCube/C/Accelator_Beta/main/readAndDisplayTimerValue.c", "/Users/zet/Studia/TimeCube/C/Accelator_Beta/main/variables.c", "/Users/zet/Studia/TimeCube/C/Accelator_Beta/main/ic2Initialize.c", "/Users/zet/Studia/TimeCube/C/Accelator_Beta/main/main.c" ],
+            "include_dirs": []
         },
         "mbedtls": {
             "alias": "idf::mbedtls",
@@ -2116,7 +2116,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ "." ]
+            "include_dirs": []
         }
     },
     "debug_prefix_map_gdbinit": ""

@@ -14,15 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-Accelator_Beta_BINARY_DIR:STATIC=/Users/zet/Studia/TimeCube/C/Accelator_Beta/build
-
-//Value Computed by CMake
-Accelator_Beta_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Accelator_Beta_SOURCE_DIR:STATIC=/Users/zet/Studia/TimeCube/C/Accelator_Beta
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/Users/zet/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-addr2line
 
@@ -219,7 +210,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Accelator_Beta
+CMAKE_PROJECT_NAME:STATIC=MatiEsp
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Users/zet/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib
@@ -330,6 +321,15 @@ MBEDTLS_FATAL_WARNINGS:BOOL=ON
 
 //Mbed TLS user config file (appended to default).
 MBEDTLS_USER_CONFIG_FILE:FILEPATH=
+
+//Value Computed by CMake
+MatiEsp_BINARY_DIR:STATIC=/Users/zet/Studia/TimeCube/C/Accelator_Beta/build
+
+//Value Computed by CMake
+MatiEsp_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+MatiEsp_SOURCE_DIR:STATIC=/Users/zet/Studia/TimeCube/C/Accelator_Beta
 
 //Value Computed by CMake
 Mbed TLS_BINARY_DIR:STATIC=/Users/zet/Studia/TimeCube/C/Accelator_Beta/build/esp-idf/mbedtls/mbedtls

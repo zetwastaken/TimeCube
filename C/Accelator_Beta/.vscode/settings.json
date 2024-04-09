@@ -14,5 +14,12 @@
     "idf.port": "/dev/cu.usbserial-10",
     "idf.pythonBinPath": "/Users/zet/.espressif/python_env/idf5.2_py3.12_env/bin/python",
     "idf.toolsPath": "/Users/zet/.espressif",
-    "idf.flashType": "UART"
+    "idf.flashType": "UART",
+    "files.associations": {
+        ".fantomasignore": "ignore",
+        "compare": "c",
+        "cstdint": "c",
+        "freertos.h": "c",
+        "task.h": "c"
+    }
 }

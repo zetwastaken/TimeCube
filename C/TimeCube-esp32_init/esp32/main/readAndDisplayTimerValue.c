@@ -21,3 +21,9 @@ uint64_t getTimerValueMs(gptimer_handle_t gptimer) {
   count = count / 1000; // convert to ms
   return count;
 }
+
+void setTimerValueMs(gptimer_handle_t gptimer, uint64_t value) {
+  gptimer_set_raw_count(gptimer, value);
+}
+
+void resetTimer(gptimer_handle_t gptimer) { gptimer_set_raw_count(gptimer, 0); }

@@ -1,7 +1,7 @@
 #include "driver/gptimer.h"
 
 gptimer_handle_t timer_init() {
-  printf("Create timer handle");
+  printf("Create timer handle\n");
   gptimer_handle_t gptimer = NULL;
   gptimer_config_t timer_config = {
       .clk_src = GPTIMER_CLK_SRC_DEFAULT,

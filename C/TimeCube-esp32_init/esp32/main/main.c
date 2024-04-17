@@ -1,8 +1,8 @@
 
+#include "checkIfCubeChangedPosition.c"
+#include "cubeWallsCheck.c"
 #include "driver/gpio.h"
 #include "driver/i2c.h"
-
-#include "checkIfCubeChangedPosition.c"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "ic2Initialize.c"
@@ -10,7 +10,6 @@
 #include "readAndDisplayTimerValue.c"
 #include "variables.c"
 #include "wifi_starter.c"
-#include <esp_log.h>
 #include <stdio.h>
 
 static const char *TAGm = "Accel";
@@ -30,9 +29,7 @@ void app_main() {
   gptimer_handle_t gptimerGlobal = timer_init();
 
   u_int8_t wallPositionTab[5] = {0, 0, 0, 0, 0};
-  u_int8_t wallTime1 = 0, wallTime2 = 0, wallTime3 = 0, wallTime4 = 0,
-           wallTime5 = 0, wallTime6 = 0;
-
+  u_int8_t wallTimeTab[6] = {0, 0, 0, 0, 0, 0};
   int16_t AccelX, AccelY, AccelZ;
   while (1) {
     readAccel(&AccelX, &AccelY, &AccelZ);
@@ -67,20 +64,8 @@ void app_main() {
 
       wallSend = true;
       resetTimer(gptimerGlobal);
-      if (wallPositionTab[0] == 1) {
-        wallTime1 += 5;
-      } else if (wallPositionTab[0] == 2) {
-        wallTime2 += 5;
-      } else if (wallPositionTab[0] == 3) {
-        wallTime3 += 5;
-      } else if (wallPositionTab[0] == 4) {
-        wallTime4 += 5;
-      } else if (wallPositionTab[0] == 5) {
-        wallTime5 += 5;
-      } else if (wallPositionTab[0] == 6) {
-        wallTime6 += 5;
-      }
-      ESP_LOGI(TAGm, "Wall 6 time: %d\n", wallTime6);
+      wallTimeTab[wallPositionTab[0] - 1] += 5;
+      printf("Wall %d", wallPositionTab[0] - 1);
       printf("--------------------\n");
     }
     if (wallSend == true) {

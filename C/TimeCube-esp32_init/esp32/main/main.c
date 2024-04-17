@@ -2,7 +2,6 @@
 #include "checkIfCubeChangedPosition.c"
 #include "cubeWallsCheck.c"
 #include "driver/gpio.h"
-#include "driver/i2c.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "ic2Initialize.c"
@@ -33,15 +32,17 @@ void app_main() {
   int16_t AccelX, AccelY, AccelZ;
   while (1) {
     readAccel(&AccelX, &AccelY, &AccelZ);
-
     u_int16_t timerValue = getTimerValueMs(gptimer);
     bool isWallPositionUnchanged = true;
 
     if (timerValue > 5000) {
       wallPositionTab[4] = checkPosition(AccelX, AccelY, AccelZ);
+      printValues(AccelX, AccelY, AccelZ);
       resetTimer(gptimer);
       for (size_t i = 0; i < 5; i++) {
+        printf("Wall postion %d\n", wallPositionTab[i]);
         if (wallPositionTab[i] != wallPositionTab[0]) {
+          printf("Wall position changed\n");
           isWallPositionUnchanged = false;
         }
       }
@@ -65,8 +66,10 @@ void app_main() {
       wallSend = true;
       resetTimer(gptimerGlobal);
       wallTimeTab[wallPositionTab[0] - 1] += 5;
-      printf("Wall %d", wallPositionTab[0] - 1);
-      printf("--------------------\n");
+      printf("\n--------------------\n");
+      for (size_t i = 0; i < 5; i++) {
+        printf("Wall %d time %d\n", i + 1, wallTimeTab[i]);
+      }
     }
     if (wallSend == true) {
       for (size_t i = 0; i < 5; i++) {
